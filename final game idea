@@ -1,0 +1,20 @@
+Idle Runner (marathon)
+
+Summary
+It's an idle game, but instead of a click equalling a cookie, it equals a(n) [insert short distance here].
+As you progress in distance you can go backward a certain distance to buy upgrades.
+The main thing to learn here is how the exponential math of idle games works, at least up to the length of a standard marathon.
+By limiting the game to a standard marathon length, I'm able to focus on the core mechanics of an idle game and not worry as
+much about the issues of extreme late game exponential growth (or the creation of so many upgrades).
+1 marathon = 42.195 kilometres
+
+Tasks:
+* Week 0: Create the "environment" (and fully flesh out the idea by writing this game plan)
+* Week 1: Create the UI for progressing the character, i.e. an interface for progressing the idle game and buying upgrades
+* Week 2: Create the math to determine incremental upgrades and then how the number of upgrades correlate to the cost
+* Week 3: (if not done with above, continue with that. otherwise) start building the scrolling mechanic to the background
+* Week 4: Complete the scrolling background mechanic relevant to velocity of player and implement upgrades
+* Week 5: Create the animation for the character moving
+* Week 6: Design a collection of backgrounds to last the length of a marathon and build them into the game 
+* Week 7: Design assets for upgrade buttons
+* Week 8: Polish?
