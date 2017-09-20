@@ -7,6 +7,7 @@ The main thing to learn here is how the exponential math of idle games works, at
 By limiting the game to a standard marathon length, I'm able to focus on the core mechanics of an idle game and not worry as
 much about the issues of extreme late game exponential growth (or the creation of so many upgrades).
 1 marathon = 42.195 kilometres
+As you run you build up energy, spend the energy on upgrades to run faster and get more energy while progressing to the finish line
 
 Tasks:
 * Week 0: Create the "environment" (and fully flesh out the idea by writing this game plan)
