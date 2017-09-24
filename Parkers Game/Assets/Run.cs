@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Run : MonoBehaviour
 {
-	public gameManager GM;
+	public GameManager GM;
 	
 	// Use this for initialization
 	void Start () {

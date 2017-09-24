@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class gameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
 	public Text DistanceDisplay;
 	public Text EnergyDisplay;
@@ -17,6 +17,7 @@ public class gameManager : MonoBehaviour
 	public float Mph = 0;
 	public float Dpc = 1;
 	public float Eps = 0;
+	public float mover = 0;
 	
 	
 	
