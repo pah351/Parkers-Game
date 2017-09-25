@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class scrolling2 : MonoBehaviour {
+public class Scrolling2 : MonoBehaviour {
 	
 	public float speed = .3f;
 	private Renderer r;
@@ -12,8 +12,8 @@ public class scrolling2 : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void scroll () {
-		Vector2 offset = new Vector2(GM.mover * speed, 0);
+	void Scroll () {
+		Vector2 offset = new Vector2(GM.Mover * Time.time, 0);
 		r.material.mainTextureOffset = offset;
 	}
 }

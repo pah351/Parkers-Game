@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moverInc : MonoBehaviour {
+public class MoverInc : MonoBehaviour {
 
 	public GameManager GM;
 	// Use this for initialization
@@ -13,6 +13,6 @@ public class moverInc : MonoBehaviour {
 	}
 	// Update is called once per frame
 	public void Running () {
-		GM.mover += GM.Dpc;
+		GM.Mover += GM.Dpc;
 	}
 }

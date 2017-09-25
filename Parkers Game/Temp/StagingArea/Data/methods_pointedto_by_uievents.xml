@@ -1,0 +1,10 @@
+<linker>
+	<assembly fullname="Assembly-CSharp">
+		<type fullname="MoverInc">
+			<method name="Running"/>
+		</type>
+		<type fullname="Run">
+			<method name="Move"/>
+		</type>
+	</assembly>
+</linker>
