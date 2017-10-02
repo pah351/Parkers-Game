@@ -19,9 +19,6 @@ public class Run : MonoBehaviour
 
 	public void Move()
 	{
-		//if (Input.GetKeyDown(KeyCode.Space))
-		//{
-			GM.Distance += GM.Dpc;
-		//}
+		GM.Energy += GM.Epc;
 	}
 }

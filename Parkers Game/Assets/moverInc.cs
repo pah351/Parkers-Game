@@ -13,6 +13,6 @@ public class MoverInc : MonoBehaviour {
 	}
 	// Update is called once per frame
 	public void Running () {
-		GM.Mover += GM.Dpc;
+		GM.Mover += GM.Eps;
 	}
 }
