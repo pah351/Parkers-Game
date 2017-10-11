@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 	public float Epc = 1;
 	public float Mover = 1;
 
+
+
 	public int milliseconds = 00;
 	public int seconds = 00;
 	public int minutes = 00;

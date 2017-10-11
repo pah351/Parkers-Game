@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class UpgradeManager : MonoBehaviour {
 
 	public GameManager GM;
-
+	private Upgrade2 upgrade2;
 	public Text LevelDisplay;
 	public Text CostDisplay;
 	public Text EpsDisplay;
@@ -16,14 +16,19 @@ public class UpgradeManager : MonoBehaviour {
 	public float Time;
 	public float NewCost;
 
+	public int Multiplier;
+	public GameObject Upgrader;
 
 	// Use this for initialization
 	void Start () {
 		StartCoroutine (AutoTick());
+		upgrade2 = Upgrader.GetComponent<Upgrade2>();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		upgrade2 = Upgrader.GetComponent<Upgrade2>();
 
 		LevelDisplay.text = "lvl: " + Level;
 		CostDisplay.text = "Cost: " + Mathf.Round(NewCost);
@@ -44,12 +49,15 @@ public class UpgradeManager : MonoBehaviour {
 		if (GM.Energy >= NewCost) {
 			GM.Energy -= NewCost;
 			Level++;
-			GM.Eps += EnergyAdd;
-
 			NewCost = Cost * (Mathf.Pow(1.15f, Level));
+
+			GM.Eps += (EnergyAdd * upgrade2.EpsMultiplied);
+
 		}
 	}
 
+
+		
 	private void TimeAdd() {
 		Time++;
 	}
@@ -60,4 +68,5 @@ public class UpgradeManager : MonoBehaviour {
 			yield return new WaitForSeconds(1);
 		}
 	}
+
 }
