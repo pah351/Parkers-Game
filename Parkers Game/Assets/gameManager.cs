@@ -16,11 +16,28 @@ public class GameManager : MonoBehaviour
 	public float Distance = 0;
 	public float Energy = 0;
 	public float Mph = 0;
-	public float Eps = 0;
 	public float Epc = 1;
 	public float Mover = 1;
 
+	public int Static = 1;
+	public int Bat = 1;
+	public int Red = 1;
+	public int Pin = 1;
+	public int Sol = 1;
+	public int Ura = 1;
+	public int Lit = 1;
+	public int Fus = 1;
 
+	public float StaticEps = 0;
+	public float BatEps = 0;
+	public float RedEps = 0;
+	public float PinEps = 0;
+	public float SolEps = 0;
+	public float UraEps = 0;
+	public float LitEps = 0;
+	public float FusEps = 0;
+
+	public float Eps;
 
 	public int milliseconds = 00;
 	public int seconds = 00;
@@ -37,6 +54,8 @@ public class GameManager : MonoBehaviour
 	IEnumerator Caller ()
 	{
 		while (true) {
+			Eps = StaticEps + BatEps + RedEps + PinEps + SolEps + UraEps + LitEps + FusEps;
+
 			DistanceDisplay.text = "Distance: " + Distance;
 			EnergyDisplay.text = "Energy: " + Energy.ToString ("F0");
 			MphDisplay.text = "MPH: " + Mph;
