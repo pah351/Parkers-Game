@@ -25,7 +25,8 @@ public class UpgradeManager : MonoBehaviour {
 	public bool LightningRod;
 	public bool MiniSun;
 
-	public GameObject Item;
+    public AudioClip buzz;
+    public AudioSource source;
 
 	public int Multiplier;
 	public GameObject Upgrader;
@@ -33,7 +34,8 @@ public class UpgradeManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		StartCoroutine (AutoTick());
-
+        
+         
 	}
 	
 	// Update is called once per frame
@@ -100,6 +102,7 @@ public class UpgradeManager : MonoBehaviour {
 				NewCost = Cost * (Mathf.Pow(1.15f, Level));
 
 				GM.StaticEps += (EnergyAdd * GM.Static);
+                source.PlayOneShot(buzz);
 
 			}
 		}
@@ -110,9 +113,10 @@ public class UpgradeManager : MonoBehaviour {
 				NewCost = Cost * (Mathf.Pow(1.15f, Level));
 
 				GM.BatEps += (EnergyAdd * GM.Bat);
+                source.PlayOneShot(buzz);
 
-			}
-		}
+            }
+        }
 		if(Wings==true){
 			if (GM.Energy >= NewCost) {
 				GM.Energy -= NewCost;
@@ -120,9 +124,10 @@ public class UpgradeManager : MonoBehaviour {
 				NewCost = Cost * (Mathf.Pow(1.15f, Level));
 
 				GM.RedEps += (EnergyAdd * GM.Red);
+                source.PlayOneShot(buzz);
 
-			}
-		}
+            }
+        }
 		if(WindTurbines==true){
 			if (GM.Energy >= NewCost) {
 				GM.Energy -= NewCost;
@@ -130,9 +135,10 @@ public class UpgradeManager : MonoBehaviour {
 				NewCost = Cost * (Mathf.Pow(1.15f, Level));
 
 				GM.PinEps += (EnergyAdd * GM.Pin);
+                source.PlayOneShot(buzz);
 
-			}
-		}
+            }
+        }
 		if(GlobalWarming==true){
 			if (GM.Energy >= NewCost) {
 				GM.Energy -= NewCost;
@@ -140,9 +146,10 @@ public class UpgradeManager : MonoBehaviour {
 				NewCost = Cost * (Mathf.Pow(1.15f, Level));
 
 				GM.SolEps += (EnergyAdd * GM.Sol);
+                source.PlayOneShot(buzz);
 
-			}
-		}
+            }
+        }
 		if(ReactorCoolant==true){
 			if (GM.Energy >= NewCost) {
 				GM.Energy -= NewCost;
@@ -150,9 +157,10 @@ public class UpgradeManager : MonoBehaviour {
 				NewCost = Cost * (Mathf.Pow(1.15f, Level));
 
 				GM.UraEps += (EnergyAdd * GM.Ura);
+                source.PlayOneShot(buzz);
 
-			}
-		}
+            }
+        }
 		if(LightningRod==true){
 			if (GM.Energy >= NewCost) {
 				GM.Energy -= NewCost;
@@ -160,9 +168,10 @@ public class UpgradeManager : MonoBehaviour {
 				NewCost = Cost * (Mathf.Pow(1.15f, Level));
 
 				GM.LitEps += (EnergyAdd * GM.Lit);
+                source.PlayOneShot(buzz);
 
-			}
-		}
+            }
+        }
 		if(MiniSun==true){
 			if (GM.Energy >= NewCost) {
 				GM.Energy -= NewCost;
@@ -170,9 +179,10 @@ public class UpgradeManager : MonoBehaviour {
 				NewCost = Cost * (Mathf.Pow(1.15f, Level));
 
 				GM.FusEps += (EnergyAdd * GM.Fus);
+                source.PlayOneShot(buzz);
 
-			}
-		}
+            }
+        }
 	}
 
 

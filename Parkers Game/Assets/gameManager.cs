@@ -12,12 +12,17 @@ public class GameManager : MonoBehaviour
 	public Text EpsDisplay;
 	public Text EpcDisplay;
 	public Text TimeDisplay;
-	
+
+    public float scrollspeed = -1.5f;
+
 	public float Distance = 0;
 	public float Energy = 0;
-	public float Mph = 0;
+	public float Mph = 0f;
 	public float Epc = 1;
 	public float Mover = 1;
+
+	public float Speed;
+	public float mass = 35;
 
 	public int Static = 1;
 	public int Bat = 1;
@@ -39,7 +44,7 @@ public class GameManager : MonoBehaviour
 
 	public float Eps;
 
-	public int milliseconds = 00;
+
 	public int seconds = 00;
 	public int minutes = 00;
 	public int hours = 00;
@@ -51,24 +56,26 @@ public class GameManager : MonoBehaviour
 	}
 	
 	// Update is called once per frame
+	void Update ()
+	{
+		Eps = StaticEps + BatEps + RedEps + PinEps + SolEps + UraEps + LitEps + FusEps;
+
+		DistanceDisplay.text = "Distance: " + Distance.ToString("F1") + " Miles";
+		EnergyDisplay.text = "Energy: " + Energy.ToString ("F0");
+		MphDisplay.text = "MPH: " + Mph.ToString ("F2");
+		EpsDisplay.text = "Energy per Second: " + Eps.ToString ("F1");
+		EpcDisplay.text = "Energy per Click: " + Epc.ToString ("F0");
+		TimeDisplay.text = "Time: " + hours.ToString().PadLeft(2, '0') + ":" + minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0');
+		Speed = Mathf.Sqrt ((15 * Eps) / mass);
+		Mph = Speed / 0.44704f;
+	}
+
 	IEnumerator Caller ()
 	{
 		while (true) {
-			Eps = StaticEps + BatEps + RedEps + PinEps + SolEps + UraEps + LitEps + FusEps;
 
-			DistanceDisplay.text = "Distance: " + Distance;
-			EnergyDisplay.text = "Energy: " + Energy.ToString ("F0");
-			MphDisplay.text = "MPH: " + Mph;
-			EpsDisplay.text = "Energy per Second: " + Eps.ToString ("F1");
-			EpcDisplay.text = "Energy per Click: " + Epc.ToString ("F0");
-			TimeDisplay.text = "Time: " + hours + ":" + minutes + ":" + seconds;
+			seconds += 1;
 
-			milliseconds += 10;
-
-			if (milliseconds >= 1000) {
-				seconds++;
-				milliseconds = 0;
-			}
 			if (seconds >= 60) {
 				minutes++;
 				seconds = 00;
@@ -81,8 +88,9 @@ public class GameManager : MonoBehaviour
 				days++;
 				hours = 00;
 			}
-			yield return new WaitForSeconds (0.01f);
+            Distance += ((Mph / 60) / 60);
+            yield return new WaitForSeconds (1);
 		}
 	}
-		
+
 }

@@ -6,9 +6,10 @@ using UnityEngine;
 public class Run : MonoBehaviour
 {
 	public GameManager GM;
-	
-	// Use this for initialization
-	void Start () {
+    public ParticleSystem ZapParticle;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -20,5 +21,7 @@ public class Run : MonoBehaviour
 	public void Move()
 	{
 		GM.Energy += GM.Epc;
+        ZapParticle.Play();
+
 	}
 }
