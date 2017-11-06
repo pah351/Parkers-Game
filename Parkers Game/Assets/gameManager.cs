@@ -24,14 +24,23 @@ public class GameManager : MonoBehaviour
 	public float Speed;
 	public float mass = 35;
 
-	public int Static = 1;
-	public int Bat = 1;
-	public int Red = 1;
-	public int Pin = 1;
-	public int Sol = 1;
-	public int Ura = 1;
-	public int Lit = 1;
-	public int Fus = 1;
+    public int Static = 0;
+    public int Bat = 0;
+    public int Red = 0;
+    public int Pin = 0;
+    public int Sol = 0;
+    public int Ura = 0;
+    public int Lit = 0;
+    public int Fus = 0;
+
+    public int Staticmult = 1;
+	public int Batmult = 1;
+	public int Redmult = 1;
+	public int Pinmult = 1;
+	public int Solmult = 1;
+	public int Uramult = 1;
+	public int Litmult = 1;
+	public int Fusmult = 1;
 
 	public float StaticEps = 0;
 	public float BatEps = 0;
@@ -49,9 +58,38 @@ public class GameManager : MonoBehaviour
 	public int minutes = 00;
 	public int hours = 00;
 	public int days = 00;
-	
-	// Use this for initialization
-	void Start () {
+
+    public GameObject StaticObj;
+    public GameObject BatObj;
+    public GameObject RedObj;
+    public GameObject PinObj;
+    public GameObject SolObj;
+    public GameObject UraObj;
+    public GameObject LitObj;
+    public GameObject FusObj;
+
+    public GameObject stat1;
+    public GameObject stat2;
+    public GameObject bat1;
+    public GameObject bat2;
+    public GameObject red1;
+    public GameObject red2;
+    public GameObject pin1;
+    public GameObject pin2;
+    public GameObject sol1;
+    public GameObject sol2;
+    public GameObject ura1;
+    public GameObject ura2;
+    public GameObject lit1;
+    public GameObject lit2;
+    public GameObject fus1;
+    public GameObject fus2;
+
+
+
+
+    // Use this for initialization
+    void Start () {
 		StartCoroutine (Caller ());
 	}
 	
@@ -68,9 +106,84 @@ public class GameManager : MonoBehaviour
 		TimeDisplay.text = "Time: " + hours.ToString().PadLeft(2, '0') + ":" + minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0');
 		Speed = Mathf.Sqrt ((15 * Eps) / mass);
 		Mph = Speed / 0.44704f;
-	}
 
-	IEnumerator Caller ()
+        if (Energy >= 15) { BatObj.SetActive(true); }
+        if (Energy >= 100) { RedObj.SetActive(true); }
+        if (Energy >= 1100) { PinObj.SetActive(true); }
+        if (Energy >= 12000) { SolObj.SetActive(true); }
+        if (Energy >= 130000) { UraObj.SetActive(true); }
+        if (Energy >= 1400000) { LitObj.SetActive(true); }
+        if (Energy >= 20000000) { FusObj.SetActive(true); }
+
+        if( stat1 != null)
+        {
+            if (Static >= 1) { stat1.SetActive(true); }
+        }
+        if (stat2 != null)
+        {
+            if (Static >= 10) { stat2.SetActive(true); }
+        }
+        if (bat1 != null)
+        {
+            if (Bat >= 5) { bat1.SetActive(true); }
+        }
+        if (bat2 != null)
+        {
+            if (Bat >= 25) { bat2.SetActive(true); }
+        }
+        if (red1 != null)
+        {
+            if (Red >= 5) { red1.SetActive(true); }
+        }
+        if (red2 != null)
+        {
+            if (Red >= 25) { red2.SetActive(true); }
+        }
+        if (pin1 != null)
+        {
+            if (Pin >= 5) { pin1.SetActive(true); }
+        }
+        if (pin2 != null)
+        {
+            if (Pin >= 25) { pin2.SetActive(true); }
+        }
+        if (sol1 != null)
+        {
+            if (Sol >= 5) { sol1.SetActive(true); }
+        }
+        if (sol2 != null)
+        {
+            if (Sol >= 25) { sol2.SetActive(true); }
+        }
+        if (ura1 != null)
+        {
+            if (Ura >= 5) { ura1.SetActive(true); }
+        }
+        if (ura2 != null)
+        {
+            if (Ura >= 25) { ura2.SetActive(true); }
+        }
+        if (lit1 != null)
+        {
+            if (Lit >= 5) { lit1.SetActive(true); }
+        }
+        if (lit2 != null)
+        {
+            if (Lit >= 25) { lit2.SetActive(true); }
+        }
+        if (fus1 != null)
+        {
+            if (Fus >= 5) { fus1.SetActive(true); }
+        }
+        if (fus2 != null)
+        {
+            if (Fus >= 25) { fus2.SetActive(true); }
+        }
+
+
+    }
+
+    IEnumerator Caller ()
 	{
 		while (true) {
 

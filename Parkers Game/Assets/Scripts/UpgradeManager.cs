@@ -9,6 +9,7 @@ public class UpgradeManager : MonoBehaviour {
 	public Text LevelDisplay;
 	public Text CostDisplay;
 	public Text EpsDisplay;
+    public Text NumDisplay;
 
 	public int Level;
 	public float Cost;
@@ -45,38 +46,48 @@ public class UpgradeManager : MonoBehaviour {
 		CostDisplay.text = "Cost: " + Mathf.Round(NewCost);
 
 		if (Mittens == true) {
-			EpsDisplay.text = EnergyAdd*GM.Static + " Watts+";
+			EpsDisplay.text = EnergyAdd*GM.Staticmult + " Watts+";
+            NumDisplay.text = GM.Static.ToString();
 
 		}
 		if (LithiumIon == true) {
-			EpsDisplay.text = EnergyAdd*GM.Bat + " Watts+";
+			EpsDisplay.text = EnergyAdd*GM.Batmult + " Watts+";
+            NumDisplay.text = GM.Bat.ToString();
 
-		}
-		if (Wings == true) {
-			EpsDisplay.text = EnergyAdd*GM.Red + " Watts+";
+        }
+        if (Wings == true) {
+			EpsDisplay.text = EnergyAdd*GM.Redmult + " Watts+";
+            NumDisplay.text = GM.Red.ToString();
 
-		}
-		if (WindTurbines == true) {
-			EpsDisplay.text = EnergyAdd*GM.Pin + " Watts+";
+        }
+        if (WindTurbines == true) {
+			EpsDisplay.text = EnergyAdd*GM.Pinmult + " Watts+";
+            NumDisplay.text = GM.Pin.ToString();
 
-		}
-		if (GlobalWarming == true) {
-			EpsDisplay.text = EnergyAdd*GM.Sol + " Watts+";
-		}
-		if (ReactorCoolant == true) {
-			EpsDisplay.text = EnergyAdd*GM.Ura + " Watts+";
+        }
+        if (GlobalWarming == true) {
+			EpsDisplay.text = EnergyAdd*GM.Solmult + " Watts+";
+            NumDisplay.text = GM.Sol.ToString();
 
-		}
-		if (LightningRod == true) {
-			EpsDisplay.text = EnergyAdd*GM.Lit + " Watts+";
+        }
+        if (ReactorCoolant == true) {
+			EpsDisplay.text = EnergyAdd*GM.Uramult + " Watts+";
+            NumDisplay.text = GM.Ura.ToString();
 
-		}
-		if (MiniSun == true) {
-			EpsDisplay.text = EnergyAdd*GM.Fus + " Watts+";
 
-		}
+        }
+        if (LightningRod == true) {
+			EpsDisplay.text = EnergyAdd*GM.Litmult + " Watts+";
+            NumDisplay.text = GM.Lit.ToString();
 
-		if (Level <= 0) {
+        }
+        if (MiniSun == true) {
+			EpsDisplay.text = EnergyAdd*GM.Fusmult + " Watts+";
+            NumDisplay.text = GM.Fus.ToString();
+
+        }
+
+        if (Level <= 0) {
 			Time = 0;
 		}
 
@@ -100,8 +111,8 @@ public class UpgradeManager : MonoBehaviour {
 				GM.Energy -= NewCost;
 				Level++;
 				NewCost = Cost * (Mathf.Pow(1.15f, Level));
-
-				GM.StaticEps += (EnergyAdd * GM.Static);
+                GM.Static++;
+				GM.StaticEps += (EnergyAdd * GM.Staticmult);
                 source.PlayOneShot(buzz);
 
 			}
@@ -111,8 +122,9 @@ public class UpgradeManager : MonoBehaviour {
 				GM.Energy -= NewCost;
 				Level++;
 				NewCost = Cost * (Mathf.Pow(1.15f, Level));
+                GM.Bat++;
 
-				GM.BatEps += (EnergyAdd * GM.Bat);
+                GM.BatEps += (EnergyAdd * GM.Batmult);
                 source.PlayOneShot(buzz);
 
             }
@@ -122,8 +134,9 @@ public class UpgradeManager : MonoBehaviour {
 				GM.Energy -= NewCost;
 				Level++;
 				NewCost = Cost * (Mathf.Pow(1.15f, Level));
+                GM.Red++;
 
-				GM.RedEps += (EnergyAdd * GM.Red);
+                GM.RedEps += (EnergyAdd * GM.Redmult);
                 source.PlayOneShot(buzz);
 
             }
@@ -133,8 +146,9 @@ public class UpgradeManager : MonoBehaviour {
 				GM.Energy -= NewCost;
 				Level++;
 				NewCost = Cost * (Mathf.Pow(1.15f, Level));
+                GM.Pin++;
 
-				GM.PinEps += (EnergyAdd * GM.Pin);
+                GM.PinEps += (EnergyAdd * GM.Pinmult);
                 source.PlayOneShot(buzz);
 
             }
@@ -144,8 +158,9 @@ public class UpgradeManager : MonoBehaviour {
 				GM.Energy -= NewCost;
 				Level++;
 				NewCost = Cost * (Mathf.Pow(1.15f, Level));
+                GM.Sol++;
 
-				GM.SolEps += (EnergyAdd * GM.Sol);
+                GM.SolEps += (EnergyAdd * GM.Solmult);
                 source.PlayOneShot(buzz);
 
             }
@@ -155,8 +170,9 @@ public class UpgradeManager : MonoBehaviour {
 				GM.Energy -= NewCost;
 				Level++;
 				NewCost = Cost * (Mathf.Pow(1.15f, Level));
+                GM.Ura++;
 
-				GM.UraEps += (EnergyAdd * GM.Ura);
+                GM.UraEps += (EnergyAdd * GM.Uramult);
                 source.PlayOneShot(buzz);
 
             }
@@ -166,8 +182,9 @@ public class UpgradeManager : MonoBehaviour {
 				GM.Energy -= NewCost;
 				Level++;
 				NewCost = Cost * (Mathf.Pow(1.15f, Level));
+                GM.Lit++;
 
-				GM.LitEps += (EnergyAdd * GM.Lit);
+                GM.LitEps += (EnergyAdd * GM.Litmult);
                 source.PlayOneShot(buzz);
 
             }
@@ -177,8 +194,9 @@ public class UpgradeManager : MonoBehaviour {
 				GM.Energy -= NewCost;
 				Level++;
 				NewCost = Cost * (Mathf.Pow(1.15f, Level));
+                GM.Fus++;
 
-				GM.FusEps += (EnergyAdd * GM.Fus);
+                GM.FusEps += (EnergyAdd * GM.Fusmult);
                 source.PlayOneShot(buzz);
 
             }

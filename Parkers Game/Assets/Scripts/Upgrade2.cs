@@ -39,75 +39,82 @@ public class Upgrade2 : MonoBehaviour {
 		if (Mittens == true) {
 			if (GM.Energy >= NewCost) {
 				GM.Energy -= NewCost;
-				GM.Static = 2;
+				GM.Staticmult *= 2;
 				GM.StaticEps=GM.StaticEps*2;
                 source.PlayOneShot(buzz);
+                Destroy(Trash);
 
             }
         }
 		if (LithiumIon == true) {
 			if (GM.Energy >= NewCost) {
 				GM.Energy -= NewCost;
-				GM.Bat = 2;
+				GM.Batmult *= 2;
 				GM.BatEps = GM.BatEps * 2;
                 source.PlayOneShot(buzz);
+                Destroy(Trash);
 
             }
         }
 		if (Wings == true) {
 			if (GM.Energy >= NewCost) {
 				GM.Energy -= NewCost;
-				GM.Red = 2;
+				GM.Redmult *= 2;
 				GM.RedEps = GM.RedEps * 2;
                 source.PlayOneShot(buzz);
+                Destroy(Trash);
 
             }
         }
 		if (WindTurbines == true) {
 			if (GM.Energy >= NewCost) {
 				GM.Energy -= NewCost;
-				GM.Pin = 2;
+				GM.Pinmult *= 2;
 				GM.PinEps = GM.PinEps * 2;
                 source.PlayOneShot(buzz);
+                Destroy(Trash);
 
             }
         }
 		if (GlobalWarming == true) {
 			if (GM.Energy >= NewCost) {
 				GM.Energy -= NewCost;
-				GM.Sol = 2;
+				GM.Solmult *= 2;
 				GM.SolEps = GM.SolEps * 2;
                 source.PlayOneShot(buzz);
+                Destroy(Trash);
 
             }
         }
 		if (ReactorCoolant == true) {
 			if (GM.Energy >= NewCost) {
 				GM.Energy -= NewCost;
-				GM.Ura = 2;
+				GM.Uramult *= 2;
 				GM.UraEps = GM.UraEps * 2;
                 source.PlayOneShot(buzz);
+                Destroy(Trash);
 
             }
         }
 		if (LightningRod == true) {
 			if (GM.Energy >= NewCost) {
 				GM.Energy -= NewCost;
-				GM.Lit = 2;
+				GM.Litmult *= 2;
 				GM.LitEps = GM.LitEps * 2;
                 source.PlayOneShot(buzz);
+                Destroy(Trash);
 
             }
         }
 		if (MiniSun == true) {
 			if (GM.Energy >= NewCost) {
 				GM.Energy -= NewCost;
-				GM.Fus = 2;
+				GM.Fusmult *= 2;
 				GM.FusEps = GM.FusEps * 2;
                 source.PlayOneShot(buzz);
+                Destroy(Trash);
 
             }
         }
-		Destroy (Trash);
 	}
 }
