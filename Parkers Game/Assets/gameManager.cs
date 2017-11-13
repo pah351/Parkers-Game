@@ -68,24 +68,33 @@ public class GameManager : MonoBehaviour
     public GameObject LitObj;
     public GameObject FusObj;
 
+    public GameObject stat0;
     public GameObject stat1;
     public GameObject stat2;
+    public GameObject bat0;
     public GameObject bat1;
     public GameObject bat2;
+    public GameObject red0;
     public GameObject red1;
     public GameObject red2;
+    public GameObject pin0;
     public GameObject pin1;
     public GameObject pin2;
+    public GameObject sol0;
     public GameObject sol1;
     public GameObject sol2;
+    public GameObject ura0;
     public GameObject ura1;
     public GameObject ura2;
+    public GameObject lit0;
     public GameObject lit1;
     public GameObject lit2;
+    public GameObject fus0;
     public GameObject fus1;
     public GameObject fus2;
 
-
+    public GameObject Wow;
+    public GameObject Wow2;
 
 
     // Use this for initialization
@@ -104,9 +113,12 @@ public class GameManager : MonoBehaviour
 		EpsDisplay.text = "Energy per Second: " + Eps.ToString ("F1");
 		EpcDisplay.text = "Energy per Click: " + Epc.ToString ("F0");
 		TimeDisplay.text = "Time: " + hours.ToString().PadLeft(2, '0') + ":" + minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0');
-		Speed = Mathf.Sqrt ((15 * Eps) / mass);
+		Speed = Mathf.Sqrt ((10 * Eps) / mass);
 		Mph = Speed / 0.44704f;
-
+        if (Energy >= 1) {
+            Wow.SetActive(false); 
+            Wow2.SetActive(false); }
+        if (Energy >= 5) { StaticObj.SetActive(true); }
         if (Energy >= 15) { BatObj.SetActive(true); }
         if (Energy >= 100) { RedObj.SetActive(true); }
         if (Energy >= 1100) { PinObj.SetActive(true); }
@@ -115,13 +127,21 @@ public class GameManager : MonoBehaviour
         if (Energy >= 1400000) { LitObj.SetActive(true); }
         if (Energy >= 20000000) { FusObj.SetActive(true); }
 
-        if( stat1 != null)
+        if (stat0 != null)
+        {
+            if (Static >= 1) { stat0.SetActive(true); }
+        }
+        if ( stat1 != null)
         {
             if (Static >= 1) { stat1.SetActive(true); }
         }
         if (stat2 != null)
         {
             if (Static >= 10) { stat2.SetActive(true); }
+        }
+        if (bat0 != null)
+        {
+            if (Bat >= 1) { bat0.SetActive(true); }
         }
         if (bat1 != null)
         {
@@ -131,13 +151,22 @@ public class GameManager : MonoBehaviour
         {
             if (Bat >= 25) { bat2.SetActive(true); }
         }
+        if (red0 != null)
+        {
+            if (Red >= 1) { red0.SetActive(true); }
+        }
         if (red1 != null)
         {
             if (Red >= 5) { red1.SetActive(true); }
         }
+
         if (red2 != null)
         {
             if (Red >= 25) { red2.SetActive(true); }
+        }
+        if (pin0 != null)
+        {
+            if (Pin >= 1) { pin0.SetActive(true); }
         }
         if (pin1 != null)
         {
@@ -147,6 +176,10 @@ public class GameManager : MonoBehaviour
         {
             if (Pin >= 25) { pin2.SetActive(true); }
         }
+        if (sol0 != null)
+        {
+            if (Sol >= 1) { sol0.SetActive(true); }
+        }
         if (sol1 != null)
         {
             if (Sol >= 5) { sol1.SetActive(true); }
@@ -155,6 +188,10 @@ public class GameManager : MonoBehaviour
         {
             if (Sol >= 25) { sol2.SetActive(true); }
         }
+        if (ura0 != null)
+        {
+            if (Ura >= 1) { ura0.SetActive(true); }
+        }
         if (ura1 != null)
         {
             if (Ura >= 5) { ura1.SetActive(true); }
@@ -162,6 +199,10 @@ public class GameManager : MonoBehaviour
         if (ura2 != null)
         {
             if (Ura >= 25) { ura2.SetActive(true); }
+        }
+        if (lit0 != null)
+        {
+            if (Lit >= 1) { lit0.SetActive(true); }
         }
         if (lit1 != null)
         {
@@ -173,7 +214,11 @@ public class GameManager : MonoBehaviour
         }
         if (fus1 != null)
         {
-            if (Fus >= 5) { fus1.SetActive(true); }
+            if (Fus >= 5) { fus0.SetActive(true); }
+        }
+        if (fus0 != null)
+        {
+            if (Fus >= 1) { fus1.SetActive(true); }
         }
         if (fus2 != null)
         {
