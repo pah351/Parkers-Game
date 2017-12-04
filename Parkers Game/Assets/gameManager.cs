@@ -94,7 +94,8 @@ public class GameManager : MonoBehaviour
     public GameObject fus2;
 
     public GameObject Wow;
-    public GameObject Wow2;
+
+    public GameObject endscreen;
 
 
     // Use this for initialization
@@ -117,7 +118,7 @@ public class GameManager : MonoBehaviour
 		Mph = Speed / 0.44704f;
         if (Energy >= 1) {
             Wow.SetActive(false); 
-            Wow2.SetActive(false); }
+            }
         if (Energy >= 5) { StaticObj.SetActive(true); }
         if (Energy >= 15) { BatObj.SetActive(true); }
         if (Energy >= 100) { RedObj.SetActive(true); }
@@ -224,7 +225,7 @@ public class GameManager : MonoBehaviour
         {
             if (Fus >= 25) { fus2.SetActive(true); }
         }
-
+        if (Distance == 26.2) { endscreen.SetActive(true); }
 
     }
 
